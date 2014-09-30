@@ -1,0 +1,120 @@
+snippet     mod
+abbr        module() endmodule
+  module ${1:`expand("%:r")`}(${2:/* portlist */});
+  ${3:/* code */}
+  endmodule
+
+snippet     inc
+abbr        `include "..."
+  \`include "${1}"
+
+snippet     def
+abbr        `define def_name def_val
+  \`define ${1:name} ${2:val}
+
+snippet     ts
+abbr        `timescale ..s/..s
+  \`timescale ${1:1ps}/${2:1ps}
+
+snippet     always
+abbr        always @() begin end
+  always @(${1:SENSITIVITY_LIST}) begin
+    ${0:TARGET}
+  end
+
+snippet     alwaysclk
+abbr        alway @(posedge clk) begin end
+  always @(posedge clk${1:SENSITIVITY_LIST}) begin
+    ${0:TARGET}
+  end
+
+snippet     if
+abbr        if() begin...end
+  if(${1:#:condition}) begin
+    ${0:TARGET}
+  end
+
+snippet     else
+abbr        else begin...end
+  end else begin
+    ${0:TARGET}
+  end
+
+snippet     ifelse
+abbr        if() ... else ...
+  if(${1:#:condition}) begin
+    ${2:TARGET}
+  end else begin
+    ${3}
+  end
+
+snippet     ini
+abbr        initial begin end
+  initial begin
+    ${0:TARGET}
+  end
+
+snippet     param
+abbr        parameter name = val;
+  parameter ${1:name} = ${2:val};
+
+snippet     for
+abbr        for(...; ...; ...) begin end
+  for (${1:i} = ${2:0}; ${3:$1 < 10}; $1${4: = $1 + 1}) begin
+    ${0:TARGET}
+  end
+
+snippet     while
+abbr        while(...) begin end
+  while(${1:#:condition}) begin
+    ${0:TARGET}
+  end
+
+snippet     case
+abbr        case()...endcase
+options     head
+  case(${1:#:var})
+    ${2:#:val} : ${0:TARGET}
+    default : $2 = x;
+  endcase
+
+snippet     func
+abbr        function  endfunction;
+  function ${1:function_name};
+    ${2:portlist};
+    begin
+      ${3:/* code */};
+    end
+  endfunction
+
+snippet     tb
+abbr        testbench
+  \`include "${1}.v"
+  \`default_nettype none
+
+  module test_$1;
+  reg rst;
+  reg clk;
+
+  $1 ${2:_$1}
+  (
+    .rst (rst),
+    .clk (clk)
+  );
+
+  parameter CLK_PERIOD = 10.0;
+  always #(CLK_PERIOD/2) clk = ~clk;
+
+  initial begin
+    $dumpfile("test_$1.vcd");
+    $dumpvars(0, test_$1);
+    #1 rst=1;clk=0;
+    #(CLK_PERIOD*3) rst=0;
+    #(CLK_PERIOD*5) rst=1;
+    #(CLK_PERIOD)
+    #(CLK_PERIOD*2);
+    $finish(2);
+  end
+
+  endmodule
+  \`default_nettype wire
