@@ -62,12 +62,12 @@ if has('vim_starting') "{{{
   endif
 endif "}}}
 
+call neobundle#begin(s:neobundle_dir)
+
 let g:neobundle#enable_tail_path = 1
 let g:neobundle#default_options = {
       \ 'default' : { 'overwrite' : 0 },
       \ }
-
-call neobundle#rc(s:neobundle_dir)
 
 NeoBundleFetch 'Shougo/neobundle.vim', '', 'default'
 if !s:is_windows
@@ -97,6 +97,9 @@ endif
 NeoBundleLocal ~/.vim/bundle
 " Installation check.
 NeoBundleCheck
+
+call neobundle#end()
+
 filetype plugin indent on
 
 " Enable syntax color.
