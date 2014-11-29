@@ -88,6 +88,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle "gcmt/wildfire.vim"
 NeoBundle 'kmnk/vim-unite-giti', {'depends' : ['unite.vim']}
 NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'haya14busa/incsearch.vim'
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
@@ -641,6 +642,12 @@ let g:over#command_line#search#enable_incsearch = 1
 let g:over#command_line#search#enable_move_cursor = 0
 
 cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>' : 's'
+"}}}
+
+" incsearch.vim "{{{
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 "}}}
 
 "}}}
