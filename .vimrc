@@ -1,5 +1,4 @@
-" Enable no Vi compatible commands.
-set nocompatible
+scriptencoding utf-8
 
 let s:is_windows = has('win16') || has('win32') || has('win64')
 let s:is_cygwin = has('win32unix')
@@ -238,7 +237,7 @@ set whichwrap+=h,l,<,>,[,],b,s,~
 "Show some special characters.
 set list
 if s:is_windows
-  set listchars=tab:>-,trail:-,extends:>,eol:↲,precedes:<
+  set listchars=tab:>-,trail:-,extends:>,precedes:<
 else
   set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
 endif
@@ -310,22 +309,22 @@ set nf="hex"
 
 " Autocommands "{{{
 augroup MyAutoCmd
-  au!
+  autocmd!
 
-  au BufWritePost *.vim,.vimrc source $MYVIMRC
-  au BufRead,BufNewFile *.vim,.vimrc setl foldmethod=marker
-  au BufRead,BufNewFile *.v setl suffixesadd=.v
-  au BufRead,BufNewFile *.py setl shiftwidth=4 cin tw=79 fdm=indent fdn=2 fdl=1
-  au BufRead,BufNewFile *.hs setl nofoldenable
+  autocmd BufWritePost *.vim,.vimrc source $MYVIMRC
+  autocmd BufRead,BufNewFile *.vim,.vimrc setl foldmethod=marker
+  autocmd BufRead,BufNewFile *.v setl suffixesadd=.v
+  autocmd BufRead,BufNewFile *.py setl shiftwidth=4 cin tw=79 fdm=indent fdn=2 fdl=1
+  autocmd BufRead,BufNewFile *.hs setl nofoldenable
 
-  au FileType vimfiler call s:vimfiler_my_settings()
-  au FileType unite call s:unite_settings()
+  autocmd FileType vimfiler call s:vimfiler_my_settings()
+  autocmd FileType unite call s:unite_settings()
 
-  au FileType css setl omnifunc=csscomplete#CompleteCSS
-  au FileType html,markdown setl omnifunc=htmlcomplete#CompleteTags
-  au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
-  au FileType python setl omnifunc=pythoncomplete#Complete
-  au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType css setl omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setl omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setl omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
 augroup END
 "}}}
 
