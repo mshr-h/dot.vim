@@ -237,9 +237,9 @@ set whichwrap+=h,l,<,>,[,],b,s,~
 "Show some special characters.
 set list
 if s:is_windows
-  set listchars=tab:>-,trail:-,extends:>,precedes:<
+  set listchars=tab:>-,trail:-
 else
-  set listchars=tab:▸\ ,trail:-,extends:»,precedes:«,nbsp:%
+  set listchars=tab:▸\ ,trail:-
 endif
 " 全角スペース・行末のスペース・タブの可視化
 if has("syntax")
@@ -325,6 +325,10 @@ augroup MyAutoCmd
   autocmd FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setl omnifunc=pythoncomplete#Complete
   autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType go setl noexpandtab
+  autocmd FileType go setl listchars=tab:\|\ ,trail:-
+  autocmd FileType go setl shiftwidth=4
+  autocmd FileType go setl tabstop=4
 augroup END
 "}}}
 
@@ -619,6 +623,7 @@ let g:indentLine_faster = 1
 let g:indentLine_color_term = 111
 let g:indentLine_color_gui = '#708090'
 let g:indentLine_char = '|'
+let g:indentLine_fileTypeExclude = ['help', 'vimfiler', 'unite']
 "}}}
 
 " nerdcommenter "{{{
