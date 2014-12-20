@@ -88,6 +88,7 @@ NeoBundle "gcmt/wildfire.vim"
 NeoBundle 'kmnk/vim-unite-giti', {'depends' : ['unite.vim']}
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'haya14busa/incsearch.vim'
+NeoBundle 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}}
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
@@ -325,10 +326,9 @@ augroup MyAutoCmd
   autocmd FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setl omnifunc=pythoncomplete#Complete
   autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
-  autocmd FileType go setl noexpandtab
-  autocmd FileType go setl listchars=tab:\|\ ,trail:-
-  autocmd FileType go setl shiftwidth=4
-  autocmd FileType go setl tabstop=4
+  autocmd BufRead,BufNewFile *.go setl noexpandtab shiftwidth=4 tabstop=4
+  autocmd BufRead,BufNewFile *.go setl listchars=tab:\|\ ,trail:-
+  autocmd BufWritePre *.go Fmt
 augroup END
 "}}}
 
@@ -346,6 +346,35 @@ let g:java_highlight_debug=1
 let g:java_allow_cpp_keywords=1
 let g:java_space_errors=1
 let g:java_highlight_functions=1
+
+" Go
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 "}}}
 
 " Plugin: "{{{
