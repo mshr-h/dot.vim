@@ -326,6 +326,8 @@ augroup MyAutoCmd
   autocmd FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setl omnifunc=pythoncomplete#Complete
   autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
+  autocmd BufRead,BufNewFile *.c,*.h setl noexpandtab shiftwidth=4 tabstop=4
+  autocmd BufRead,BufNewFile *.c,*.h setl listchars=tab:\|\ ,trail:-
   autocmd BufRead,BufNewFile *.go setl noexpandtab shiftwidth=4 tabstop=4
   autocmd BufRead,BufNewFile *.go setl listchars=tab:\|\ ,trail:-
   autocmd BufWritePre *.go Fmt
