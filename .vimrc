@@ -711,7 +711,8 @@ nnoremap < <<
 xnoremap > >gv
 xnoremap < <gv
 
-xnoremap <silent> y "*y:let [@+,@"]=[@*,@*]<CR>
+nnoremap Y y$
+" xnoremap <silent> y "*y:let [@+,@"]=[@*,@*]<CR>
 "}}}
 " Command-line mode keymappings:"{{{
 " <C-a>, A: move to head.
