@@ -88,7 +88,7 @@ NeoBundle "gcmt/wildfire.vim"
 NeoBundle 'kmnk/vim-unite-giti', {'depends' : ['unite.vim']}
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'Blackrush/vim-gocode', {"autoload": {"filetypes": ['go']}}
+NeoBundle 'fatih/vim-go', {"autoload": {"filetypes": ['go']}}
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
@@ -683,6 +683,10 @@ cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandL
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+"}}}
+
+" vim-go "{{{
+let g:go_fmt_command='goimports'
 "}}}
 
 "}}}
