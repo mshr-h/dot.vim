@@ -27,6 +27,9 @@ let $DOTVIM = expand('~/.vim')
 " enable matchit.vim
 source $VIMRUNTIME/macros/matchit.vim
 
+"golint
+set runtimepath+=globpath($GOPATH, "src/github.com/golang/lint/misc/vim")
+
 " NeoBundle: "{{{
 let s:neobundle_dir = expand('~/.bundle')
 
