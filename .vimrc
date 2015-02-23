@@ -79,7 +79,6 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim', {'depends' : ['unite.vim']}
 NeoBundle 'Shougo/vimshell', {'depends' : ['unite.vim']}
 NeoBundle 'Shougo/vimfiler', {'depends' : ['unite.vim']}
-NeoBundle 'LeafCage/yankround.vim', {'depends' : ['unite.vim']}
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'tyru/restart.vim'
 NeoBundle 'itchyny/lightline.vim'
@@ -640,17 +639,6 @@ endfunction
 " Restart.vim "{{{
 let g:restart_save_window_values=0
 nnoremap <silent> [Space]re  :<C-u>Restart<CR>
-"}}}
-
-" yankround "{{{
-nmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
-nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
 "}}}
 
 " indentLine "{{{
