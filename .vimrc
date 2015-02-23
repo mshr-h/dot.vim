@@ -385,8 +385,8 @@ let g:tagbar_type_go = {
 " Plugin: "{{{
 
 " VimFiler "{{{
-nnoremap <silent> [Space]v  :<C-u>VimFiler -find<CR>
-nnoremap <silent> [Space]ff :<C-u>VimFilerExplorer<CR>
+nnoremap <silent> <Space>v  :<C-u>VimFiler -find<CR>
+nnoremap <silent> <Space>ff :<C-u>VimFilerExplorer<CR>
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_clipboard = 0
 let g:vimfiler_safe_mode_by_default = 0
@@ -433,16 +433,13 @@ endfunction
 "}}}
 
 " VimShell "{{{
-nmap <C-@>  :<C-u>VimShell<CR>
-nmap [Space]s  :<C-u>VimShell<CR>
-nnoremap !  :<C-u>VimShellExecute<Space>
-nnoremap [Space]i  :<C-u>VimShellInteractive<Space>
-nnoremap <silent> [Space];  :<C-u>VimShellPop<CR>
+nmap <Space>s  :<C-u>VimShell<CR>
+nnoremap <silent> <Space>;  :<C-u>VimShellPop<CR>
 "}}}
 
 " wildfire.vim "{{{
 let g:wildfire_fuel_map = "<CR>"
-let g:wildfire_water_map = "<C-CR>"
+let g:wildfire_water_map = "<C-CR>t"
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 "}}}
 
@@ -465,8 +462,8 @@ endfunction
 " The prefix key.
 nnoremap    [unite]   <Nop>
 xnoremap    [unite]   <Nop>
-nmap    [Space]u [unite]
-xmap    [Space]u [unite]
+nmap    <Space>u [unite]
+xmap    <Space>u [unite]
 " Unite-grep
 nnoremap <silent> [unite]s
       \ :<C-u>Unite grep -buffer-name=search
@@ -638,7 +635,7 @@ endfunction
 
 " Restart.vim "{{{
 let g:restart_save_window_values=0
-nnoremap <silent> [Space]re  :<C-u>Restart<CR>
+nnoremap <silent> <Space>re  :<C-u>Restart<CR>
 "}}}
 
 " indentLine "{{{
@@ -698,31 +695,14 @@ let g:syntastic_c_checkers = []
 
 " Keymapping: "{{{
 " Smart space mapping.
-nmap  <Space>   [Space]
-xmap  <Space>   [Space]
-nnoremap  [Space]   <Nop>
-xnoremap  [Space]   <Nop>
+nnoremap <Space>   <Nop>
+xnoremap <Space>   <Nop>
 " Clear highlight.
 nnoremap <Esc><Esc> :nohlsearch<CR>
 " Disable ZZ and ZQ.
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap <Leader>c :<C-u>setlocal cursorline! cursorcolumn!<CR>
-" Visual mode keymappings: "{{{
-" <TAB>: indent.
-xnoremap <TAB>  >
-" <S-TAB>: unindent.
-xnoremap <S-TAB>  <
-
-" Indent
-nnoremap > >>
-nnoremap < <<
-xnoremap > >gv
-xnoremap < <gv
-
-nnoremap Y y$
-" xnoremap <silent> y "*y:let [@+,@"]=[@*,@*]<CR>
-"}}}
 " Command-line mode keymappings:"{{{
 " <C-a>, A: move to head.
 cnoremap <C-a>          <Home>
@@ -745,30 +725,22 @@ cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
 cnoremap <C-y>          <C-r>*
 "}}}
 " Easily edit .vimrc and .gvimrc "{{{
-nnoremap <silent> [Space]ev  :<C-u>edit $MYVIMRC<CR>
-nnoremap <silent> [Space]eg  :<C-u>edit $MYGVIMRC<CR>
-" Load .gvimrc after .vimrc edited at GVim.
-nnoremap <silent> [Space]rv :<C-u>source $MYVIMRC \|
-      \ if has('gui_running') \|
-      \   source $MYGVIMRC \|
-      \ endif \| echo "source $MYVIMRC"<CR>
-nnoremap <silent> [Space]rg
-      \ :<C-u>source $MYGVIMRC \|
-      \ echo "source $MYGVIMRC"<CR>
+nnoremap <silent> <Space>ev  :<C-u>edit $MYVIMRC<CR>
+nnoremap <silent> <Space>eg  :<C-u>edit $MYGVIMRC<CR>
 "}}}
 " Change current directory. "{{{
-nnoremap <silent> [Space]cd :<C-u>CD<CR>
+nnoremap <silent> <Space>cd :<C-u>CD<CR>
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>') 
 function! s:ChangeCurrentDir(directory, bang)
-    if a:directory == ''
-        lcd %:p:h
-    else
-        execute 'lcd' . a:directory
-    endif
+  if a:directory == ''
+    lcd %:p:h
+  else
+    execute 'lcd' . a:directory
+  endif
 
-    if a:bang == ''
-        pwd
-    endif
+  if a:bang == ''
+    pwd
+  endif
 endfunction
 "}}}
 
