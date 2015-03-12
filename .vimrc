@@ -333,7 +333,6 @@ augroup MyAutoCmd
   autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl listchars=tab:\|\ ,trail:-
   autocmd BufRead,BufNewFile *.go setl noexpandtab shiftwidth=4 tabstop=4
   autocmd BufRead,BufNewFile *.go setl listchars=tab:\|\ ,trail:-
-  autocmd BufWritePre *.go GoFmt
 augroup END
 "}}}
 
@@ -676,6 +675,12 @@ map g/ <Plug>(incsearch-stay)
 
 " vim-go "{{{
 let g:go_fmt_command='goimports'
+let g:go_fmt_autosave = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 "}}}
 
 " syntastic "{{{
