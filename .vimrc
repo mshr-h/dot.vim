@@ -333,6 +333,8 @@ augroup MyAutoCmd
   autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl listchars=tab:\|\ ,trail:-
   autocmd BufRead,BufNewFile *.go setl noexpandtab shiftwidth=4 tabstop=4
   autocmd BufRead,BufNewFile *.go setl listchars=tab:\|\ ,trail:-
+  autocmd BufRead,BufNewFile *.v setl noexpandtab shiftwidth=2 tabstop=2
+  autocmd BufRead,BufNewFile *.v setl listchars=tab:\|\ ,trail:-
 augroup END
 "}}}
 
