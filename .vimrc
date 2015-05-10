@@ -92,6 +92,7 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'fatih/vim-go', {"autoload": {"filetypes": ['go']}}
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tyru/eskk.vim'
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
@@ -696,6 +697,22 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_go_checkers = ['golint']
 let g:syntastic_c_checkers = []
+"}}}
+
+" eskk.vim "{{{
+let g:eskk#enable_completion = 1
+let g:eskk#directory = '~/.config/skk'
+let g:eskk#dictionary = {
+      \ 'path': "~/.config/skk/skk-jisyo",
+      \ 'sorted': 1,
+      \ 'encoding': 'utf-8',
+      \}
+let g:eskk#large_dictionary = {
+      \ 'path': "~/.config/skk/SKK-JISYO.LL",
+      \ 'sorted': 1,
+      \ 'encoding': 'euc-jp',
+      \}
+
 "}}}
 
 "}}}
