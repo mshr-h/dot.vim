@@ -93,6 +93,7 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'fatih/vim-go', {"autoload": {"filetypes": ['go']}}
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tyru/eskk.vim'
+NeoBundle 'shinka-cb/smv_vim'
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
