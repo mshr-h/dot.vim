@@ -93,7 +93,6 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'fatih/vim-go', {"autoload": {"filetypes": ['go']}}
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tyru/eskk.vim'
-NeoBundle 'shinka-cb/smv_vim'
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
@@ -337,6 +336,10 @@ augroup MyAutoCmd
   autocmd BufRead,BufNewFile *.go setl listchars=tab:\|\ ,trail:-
   autocmd BufRead,BufNewFile *.v setl noexpandtab shiftwidth=2 tabstop=2
   autocmd BufRead,BufNewFile *.v setl listchars=tab:\|\ ,trail:-
+
+
+  autocmd! BufRead,BufNewFile *.smv
+  autocmd BufRead,BufNewFile *.smv so ~/.vim/smv.vim
 augroup END
 "}}}
 
