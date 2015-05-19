@@ -104,6 +104,7 @@ syn match   smvNumber         "-\=\<[0-9]\+"
 
 "Comment
 syn match   smvComment        "--.*"
+setlocal commentstring=--%s
 
 " Catch mismatched parentheses
 syn region smvGeneric         transparent start="\[" end="\]" contains=ALLBUT,smvBracketError
