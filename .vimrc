@@ -312,43 +312,38 @@ set t_Co=256
 set nf="hex"
 "}}}
 
-" Autocommands "{{{
-augroup MyAutoCmd
-  autocmd!
-
-  autocmd BufWritePost *.vim,.vimrc source $MYVIMRC
-  autocmd BufRead,BufNewFile *.vim,.vimrc setl foldmethod=marker
-  autocmd BufRead,BufNewFile *.v setl suffixesadd=.v
-  autocmd BufRead,BufNewFile *.py setl shiftwidth=4 cin tw=79 fdm=indent fdn=2 fdl=1
-  autocmd BufRead,BufNewFile *.hs setl nofoldenable
-
-  autocmd FileType vimfiler call s:vimfiler_my_settings()
-  autocmd FileType unite call s:unite_settings()
-
-  autocmd FileType css setl omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setl omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setl omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
-  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl noexpandtab shiftwidth=4 tabstop=4
-  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl listchars=tab:\|\ ,trail:-
-  autocmd BufRead,BufNewFile *.go setl noexpandtab shiftwidth=4 tabstop=4
-  autocmd BufRead,BufNewFile *.go setl listchars=tab:\|\ ,trail:-
-  autocmd BufRead,BufNewFile *.v setl noexpandtab shiftwidth=2 tabstop=2
-  autocmd BufRead,BufNewFile *.v setl listchars=tab:\|\ ,trail:-
-
-
-  autocmd! BufRead,BufNewFile *.smv
-  autocmd BufRead,BufNewFile *.smv so ~/.vim/smv.vim
-augroup END
-"}}}
-
 " Syntax: "{{{
 " Vim
 let g:vimsyntax_noerror = 1
 
 " Python
 let g:python_highlight_all = 1
+function! Preserve(command)
+    " Save the last search.
+    let search = @/
+    " Save the current cursor position.
+    let cursor_position = getpos('.')
+    " Save the current window position.
+    normal! H
+    let window_position = getpos('.')
+    call setpos('.', cursor_position)
+    " Execute the command.
+    execute a:command
+    " Restore the last search.
+    let @/ = search
+    " Restore the previous window position.
+    call setpos('.', window_position)
+    normal! zt
+    " Restore the previous cursor position.
+    call setpos('.', cursor_position)
+endfunction
+
+function! Autopep8()
+    call Preserve(':silent %!autopep8 -')
+endfunction
+
+" Shift + F で自動修正
+autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
 " Java
 let g:java_highlight_functions = 'style'
@@ -386,6 +381,39 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+"}}}
+
+" Autocommands "{{{
+augroup MyAutoCmd
+  autocmd!
+
+  autocmd BufWritePost *.vim,.vimrc source $MYVIMRC
+  autocmd BufRead,BufNewFile *.vim,.vimrc setl foldmethod=marker
+  autocmd BufRead,BufNewFile *.v setl suffixesadd=.v
+  autocmd BufRead,BufNewFile *.py setl shiftwidth=4 cin tw=79
+  autocmd BufRead,BufNewFile *.py setl fdm=indent fdn=2 fdl=1
+  autocmd BufWritePre *.py call Autopep8()
+  autocmd BufRead,BufNewFile *.hs setl nofoldenable
+  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl noexpandtab
+  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl shiftwidth=4
+  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl tabstop=4
+  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl listchars=tab:\|\ ,trail:-
+  autocmd BufRead,BufNewFile *.go setl noexpandtab shiftwidth=4 tabstop=4
+  autocmd BufRead,BufNewFile *.go setl listchars=tab:\|\ ,trail:-
+  autocmd BufRead,BufNewFile *.v setl noexpandtab shiftwidth=2 tabstop=2
+  autocmd BufRead,BufNewFile *.v setl listchars=tab:\|\ ,trail:-
+  autocmd! BufRead,BufNewFile *.smv
+  autocmd  BufRead,BufNewFile *.smv so ~/.vim/smv.vim
+
+  autocmd FileType vimfiler call s:vimfiler_my_settings()
+  autocmd FileType unite call s:unite_settings()
+
+  autocmd FileType css setl omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setl omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setl omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
+augroup END
 "}}}
 
 " Plugin: "{{{
@@ -701,6 +729,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_go_checkers = ['golint']
 let g:syntastic_c_checkers = []
+let g:syntastic_python_checkers = []
 "}}}
 
 " eskk.vim "{{{
