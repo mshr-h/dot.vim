@@ -339,7 +339,7 @@ function! Preserve(command)
 endfunction
 
 function! Autopep8()
-    call Preserve(':silent %!autopep8 -')
+    call Preserve(':silent %!autopep8 --indent-size 2 -')
 endfunction
 
 " Shift + F で自動修正
