@@ -390,7 +390,7 @@ augroup MyAutoCmd
   autocmd BufWritePost *.vim,.vimrc source $MYVIMRC
   autocmd BufRead,BufNewFile *.vim,.vimrc setl foldmethod=marker
   autocmd BufRead,BufNewFile *.v setl suffixesadd=.v
-  autocmd BufRead,BufNewFile *.py setl shiftwidth=4 cin tw=79
+  autocmd BufRead,BufNewFile *.py setl shiftwidth=2 cin tw=79
   autocmd BufRead,BufNewFile *.py setl fdm=indent fdn=2 fdl=1
   autocmd BufWritePre *.py call Autopep8()
   autocmd BufRead,BufNewFile *.hs setl nofoldenable
