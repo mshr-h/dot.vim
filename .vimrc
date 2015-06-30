@@ -93,7 +93,6 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'fatih/vim-go', {"autoload": {"filetypes": ['go']}}
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tyru/eskk.vim'
-NeoBundle 'Wutzara/vim-materialtheme'
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
@@ -247,12 +246,13 @@ if s:is_windows
 else
   set listchars=tab:▸\ ,trail:-
 endif
-" visualize fullwidth space, spaces at the end of line
+" 全角スペース・行末のスペース・タブの可視化
 if has("syntax")
   syntax on
   " PODバグ対策
   syn sync fromstart
   function! ActivateInvisibleIndicator()
+    " 下の行の"　"は全角スペース
     syntax match InvisibleJISX0208Space "　" display containedin=ALL
     highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
   endfunction
@@ -298,7 +298,9 @@ set backspace=indent,eol,start
 set clipboard=unnamed,autoselect
 " Use incremental search.
 set incsearch
+" 検索時に大文字を含んでいたら大/小を区別
 set smartcase
+" 大文字と小文字を区別しない
 set ignorecase
 " Enable modeline.
 set modeline
@@ -308,10 +310,6 @@ set hidden
 set t_Co=256
 " Ctrl-a increment fix
 set nf="hex"
-" set colorscheme materialtheme
-if g:neobundle#is_installed('vim-materialtheme')
-  colorscheme materialtheme
-endif
 "}}}
 
 " Syntax: "{{{
