@@ -1,4 +1,7 @@
 colorscheme desert
+if g:neobundle#is_installed('vim-materialtheme')
+  colorscheme materialtheme
+endif
 
 " Window size
 set lines=30
