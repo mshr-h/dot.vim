@@ -738,9 +738,9 @@ let g:quickrun_config["watchdogs_checker/_"] = {
       \ "hook/qfstatusline_update/enable_exit" : 1,
       \ "hook/qfstatusline_update/priority_exit" : 4,
       \ }
-"}}}
 
 call watchdogs#setup(g:quickrun_config)
+"}}}
 
 " vim-qfstatusline "{{{
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
