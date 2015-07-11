@@ -91,7 +91,6 @@ NeoBundle 'kmnk/vim-unite-giti', {'depends' : ['unite.vim']}
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'fatih/vim-go', {"autoload": {"filetypes": ['go']}}
-NeoBundle 'scrooloose/syntastic'
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
@@ -579,7 +578,7 @@ let g:lightline = {
         \     ['filename']
         \   ],
         \   'right': [
-        \     ['lineinfo', 'syntastic'],
+        \     ['lineinfo'],
         \     ['percent'],
         \     ['charcode', 'fileformat', 'fileencoding', 'filetype']
         \   ]
@@ -717,18 +716,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 "}}}
 
-" syntastic "{{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['golint']
-let g:syntastic_c_checkers = []
-let g:syntastic_python_checkers = []
 "}}}
 
 
