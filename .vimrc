@@ -91,6 +91,10 @@ NeoBundle 'kmnk/vim-unite-giti', {'depends' : ['unite.vim']}
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'fatih/vim-go', {"autoload": {"filetypes": ['go']}}
+NeoBundle "osyo-manga/shabadou.vim"
+NeoBundle "osyo-manga/vim-watchdogs"
+NeoBundle "jceb/vim-hier"
+NeoBundle "KazuakiM/vim-qfstatusline"
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
@@ -580,6 +584,7 @@ let g:lightline = {
         \   'right': [
         \     ['lineinfo'],
         \     ['percent'],
+        \     [ 'syntaxcheck' ],
         \     ['charcode', 'fileformat', 'fileencoding', 'filetype']
         \   ]
         \ },
@@ -593,7 +598,13 @@ let g:lightline = {
         \   'modified'     : 'MyModified',
         \   'readonly'     : 'MyReadonly',
         \   'syntastic'    : 'SyntasticStatuslineFlag',
-        \ }
+        \ },
+        \ 'component_expand': {
+        \   'syntaxcheck': 'qfstatusline#Update',
+        \ },
+        \ 'component_type': {
+        \   'syntaxcheck': 'error',
+        \ },
         \ }
 
 function! MyModified()
@@ -716,9 +727,23 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 "}}}
 
+" vim-watchdogs "{{{
+let g:watchdogs_check_BufWritePost_enable = 1
+if !exists("g:quickrun_config")
+    let g:quickrun_config = {}
+endif
+
+let g:quickrun_config["watchdogs_checker/_"] = {
+      \ "outputter/quickfix/open_cmd" : "",
+      \ "hook/qfstatusline_update/enable_exit" : 1,
+      \ "hook/qfstatusline_update/priority_exit" : 4,
+      \ }
 "}}}
 
+call watchdogs#setup(g:quickrun_config)
 
+" vim-qfstatusline "{{{
+let g:Qfstatusline#UpdateCmd = function('lightline#update')
 "}}}
 
 "}}}
