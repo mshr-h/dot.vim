@@ -95,6 +95,7 @@ NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle "jceb/vim-hier"
 NeoBundle "KazuakiM/vim-qfstatusline"
+NeoBundle 'rhysd/vim-crystal'
 if(has('lua'))
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet', {'depends' : ['neocomplete']}
