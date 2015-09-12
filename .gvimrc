@@ -1,4 +1,4 @@
-colorscheme desert
+colorscheme Tomorrow-Night-Eighties
 
 " Window size
 set lines=30
