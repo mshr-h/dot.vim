@@ -417,7 +417,9 @@ let g:plug_window='new'
 " ----------------------------------------------------------------------------
 " vimproc
 " ----------------------------------------------------------------------------
-if has('win32')
+if has('win64')
+  let g:vimproc_dll_path = $DOTVIM . '/vimproc_win64.dll'
+elseif has('win32')
   let g:vimproc_dll_path = $DOTVIM . '/vimproc_win32.dll'
 endif
 
