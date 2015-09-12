@@ -765,7 +765,7 @@ runtime macros/matchit.vim
 " ----------------------------------------------------------------------------
 " Read local setting.
 " ----------------------------------------------------------------------------
-if filereadable(expand('~/.vimrc_local'))
-  source ~/.vimrc_local
+if filereadable(expand('$HOME/.vimrc_local'))
+  source $HOME/.vimrc_local
 endif
 
