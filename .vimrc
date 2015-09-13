@@ -60,6 +60,9 @@ silent! if plug#begin('~/.plugged')
   " Lang
   Plug 'fatih/vim-go'
   Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
+  Plug 'plasticboy/vim-markdown'
+  Plug 'kannokanno/previm'
+  Plug 'tyru/open-browser.vim'
 
   if(has('lua'))
     Plug 'Shougo/neocomplete' | Plug 'Shougo/neosnippet'
@@ -378,6 +381,12 @@ let g:tagbar_type_go = {
     \ },
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'}
+
+
+" markdown
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 " ----------------------------------------------------------------------------
 " Autocommands
