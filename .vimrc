@@ -44,6 +44,7 @@ silent! if plug#begin('~/.plugged')
 
   " Colors
   Plug 'chriskempson/vim-tomorrow-theme'
+  Plug 'kien/rainbow_parentheses.vim'
 
   " Edit
   Plug 'junegunn/vim-easy-align'
@@ -770,6 +771,15 @@ let g:Qfstatusline#UpdateCmd = function('lightline#update')
 " matchit.vim
 " ----------------------------------------------------------------------------
 runtime macros/matchit.vim
+
+" ----------------------------------------------------------------------------
+" rainbow_parentheses.vim
+" ----------------------------------------------------------------------------
+let g:rbpt_loadcmd_toggle=1
+augroup RainbowParentheses
+  autocmd!
+  autocmd Syntax * RainbowParenthesesToggleAll
+augroup END
 
 " ----------------------------------------------------------------------------
 " Read local setting.
