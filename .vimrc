@@ -128,6 +128,7 @@ set completeopt=menuone,preview,longest
 set nocursorline
 set nrformats=hex
 set formatoptions+=1
+set completeopt-=preview
 if has('patch-7.3.541')
   set formatoptions+=j
 endif
