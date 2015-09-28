@@ -52,9 +52,6 @@ silent! if plug#begin('~/.plugged')
   Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-surround'
   Plug 'osyo-manga/vim-over'
-  Plug 'thinca/vim-quickrun'
-  Plug 'osyo-manga/shabadou.vim'
-  Plug 'osyo-manga/vim-watchdogs'
   Plug 'jceb/vim-hier'
   Plug 'KazuakiM/vim-qfstatusline'
 
@@ -64,7 +61,13 @@ silent! if plug#begin('~/.plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
-
+  
+  if exists('##QuitPre')
+    Plug 'thinca/vim-quickrun'
+    Plug 'osyo-manga/shabadou.vim'
+    Plug 'osyo-manga/vim-watchdogs'
+  endif
+  
   if(has('lua'))
     Plug 'Shougo/neocomplete' | Plug 'Shougo/neosnippet'
     Plug 'Shougo/neocomplete' | Plug 'Shougo/neosnippet-snippets'
@@ -750,18 +753,20 @@ cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandL
 " ----------------------------------------------------------------------------
 " vim-watchdogs
 " ----------------------------------------------------------------------------
-let g:watchdogs_check_BufWritePost_enable = 1
-if !exists("g:quickrun_config")
-  let g:quickrun_config = {}
+if exists('##QuitPre')
+  let g:watchdogs_check_BufWritePost_enable = 1
+  if !exists("g:quickrun_config")
+    let g:quickrun_config = {}
+  endif
+
+  let g:quickrun_config["watchdogs_checker/_"] = {
+        \ "outputter/quickfix/open_cmd" : "",
+        \ "hook/qfstatusline_update/enable_exit" : 1,
+        \ "hook/qfstatusline_update/priority_exit" : 4,
+        \ }
+
+  call watchdogs#setup(g:quickrun_config)
 endif
-
-let g:quickrun_config["watchdogs_checker/_"] = {
-      \ "outputter/quickfix/open_cmd" : "",
-      \ "hook/qfstatusline_update/enable_exit" : 1,
-      \ "hook/qfstatusline_update/priority_exit" : 4,
-      \ }
-
-call watchdogs#setup(g:quickrun_config)
 
 " ----------------------------------------------------------------------------
 " vim-qfstatusline
