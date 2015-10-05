@@ -61,7 +61,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
-  Plug 'vim-scripts/javacomplete'
+  Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload; javac Reflection.java'}
   
   if exists('##QuitPre')
     Plug 'thinca/vim-quickrun'
