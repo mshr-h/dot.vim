@@ -61,6 +61,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
+  Plug 'vim-scripts/javacomplete'
   
   if exists('##QuitPre')
     Plug 'thinca/vim-quickrun'
@@ -427,6 +428,8 @@ augroup MyAutoCmd
   autocmd FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setl omnifunc=pythoncomplete#Complete
   autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
+  autocmd FileType java setl omnifunc=javacomplete#Complete
+  autocmd FileType java setl completefunc=javacomplete#COmpleteParamsInfo
 augroup END
 
 
