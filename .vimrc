@@ -359,6 +359,13 @@ augroup Python
   autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 augroup END
 
+" Java
+let g:java_highlight_all=1
+let g:java_highlight_debug=1
+let g:java_allow_cpp_keywords=1
+let g:java_space_errors=1
+let g:java_highlight_functions=1
+
 " Golang
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
