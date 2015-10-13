@@ -62,6 +62,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
   Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload; javac Reflection.java'}
+  Plug 'tell-k/vim-autopep8'
   
   if exists('##QuitPre')
     Plug 'thinca/vim-quickrun'
@@ -351,15 +352,6 @@ function! Preserve(command)
   call setpos('.', cursor_position)
 endfunction
 
-function! Autopep8()
-  call Preserve(':silent %!autopep8 --indent-size 2 -')
-endfunction
-
-augroup Python
-  autocmd! Python
-  autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
-augroup END
-
 " Java
 let g:java_highlight_all=1
 let g:java_highlight_debug=1
@@ -395,6 +387,8 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'}
 
+" Python
+let g:autopep8_disable_show_diff=1
 
 " markdown
 let g:netrw_nogx = 1
@@ -410,9 +404,8 @@ augroup MyAutoCmd
   autocmd BufWritePost *.vim,.vimrc source $MYVIMRC
   autocmd BufRead,BufNewFile *.vim,.vimrc setl foldmethod=marker
   autocmd BufRead,BufNewFile *.v setl suffixesadd=.v
-  autocmd BufRead,BufNewFile *.py setl shiftwidth=2 cin tw=79
+  autocmd BufRead,BufNewFile *.py setl shiftwidth=4 cin tw=79
   autocmd BufRead,BufNewFile *.py setl fdm=indent fdn=2 fdl=1
-  autocmd BufWritePre *.py call Autopep8()
   autocmd BufRead,BufNewFile *.hs setl nofoldenable
   autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl noexpandtab
   autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl shiftwidth=4
