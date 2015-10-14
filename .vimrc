@@ -401,20 +401,27 @@ vmap gx <Plug>(openbrowser-smart-search)
 augroup MyAutoCmd
   autocmd!
 
-  autocmd BufWritePost *.vim,.vimrc source $MYVIMRC
   autocmd BufRead,BufNewFile *.vim,.vimrc setl foldmethod=marker
-  autocmd BufRead,BufNewFile *.v setl suffixesadd=.v
-  autocmd BufRead,BufNewFile *.py setl shiftwidth=4 cin tw=79
-  autocmd BufRead,BufNewFile *.py setl fdm=indent fdn=2 fdl=1
-  autocmd BufRead,BufNewFile *.hs setl nofoldenable
-  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl noexpandtab
-  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl shiftwidth=4
-  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl tabstop=4
-  autocmd BufRead,BufNewFile *.c,*.cpp,*.h setl listchars=tab:\|\ ,trail:-
-  autocmd BufRead,BufNewFile *.go setl noexpandtab shiftwidth=4 tabstop=4
-  autocmd BufRead,BufNewFile *.go setl listchars=tab:\|\ ,trail:-
-  autocmd BufRead,BufNewFile *.v setl noexpandtab shiftwidth=2 tabstop=2
-  autocmd BufRead,BufNewFile *.v setl listchars=tab:\|\ ,trail:-
+  autocmd FileType python setl shiftwidth=4
+  autocmd FileType python setl cin
+  autocmd FileType python setl tw=79
+  autocmd FileType python setl fdm=indent
+  autocmd FileType python setl fdn=2
+  autocmd FileType python setl fdl=1
+  autocmd FileType haskell setl nofoldenable
+  autocmd FileType c,cpp,objc setl noexpandtab
+  autocmd FileType c,cpp,objc setl shiftwidth=4
+  autocmd FileType c,cpp,objc setl tabstop=4
+  autocmd FileType c,cpp,objc setl listchars=tab:\|\ ,trail:-
+  autocmd FileType go setl noexpandtab
+  autocmd FileType go setl shiftwidth=4
+  autocmd FileType go setl tabstop=4
+  autocmd FileType go setl listchars=tab:\|\ ,trail:-
+  autocmd FileType verilog setl suffixesadd=.v
+  autocmd FileType verilog setl noexpandtab
+  autocmd FileType verilog setl shiftwidth=2
+  autocmd FileType verilog setl tabstop=2
+  autocmd FileType verilog setl listchars=tab:\|\ ,trail:-
 
   autocmd FileType css setl omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setl omnifunc=htmlcomplete#CompleteTags
