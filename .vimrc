@@ -63,6 +63,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'tyru/open-browser.vim'
   Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload; javac Reflection.java'}
   Plug 'tell-k/vim-autopep8'
+  Plug 'rhysd/vim-clang-format'
 
   if exists('##QuitPre')
     Plug 'thinca/vim-quickrun'
