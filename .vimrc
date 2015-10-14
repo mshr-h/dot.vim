@@ -767,20 +767,23 @@ if exists('##QuitPre')
     let g:quickrun_config = {}
   endif
 
-  let g:quickrun_config["_"] = {
-        \ "runner" : "vimproc",
-        \ "runner/vimproc/updatetime" : 250,
-        \ "outputter" : "multi:buffer:quickfix",
-        \ "outputter/buffer/split" : ":botright 8sp",
-        \ "hook/close_buffer/enable_empty_data" : 1,
-        \ "hook/close_buffer/enable_failure" : 1,
-        \ "hook/close_quickfix/enable_hook_loaded" : 1,
-        \ "hook/close_quickfix/enable_success" : 1,
-        \ }
-  let g:quickrun_config["watchdogs_checker/_"] = {
-        \ "outputter/quickfix/open_cmd" : "",
-        \ "hook/qfstatusline_update/enable_exit" : 1,
-        \ "hook/qfstatusline_update/priority_exit" : 4,
+  let g:quickrun_config = {
+        \   "_" : {
+        \     "runner" : "vimproc",
+        \     "hook/time/enable" : 0,
+        \     "runner/vimproc/updatetime" : 250,
+        \     "outputter" : "multi:buffer:quickfix",
+        \     "outputter/buffer/split" : ":botright 8sp",
+        \     "hook/close_buffer/enable_empty_data" : 1,
+        \     "hook/close_buffer/enable_failure" : 1,
+        \     "hook/close_quickfix/enable_hook_loaded" : 1,
+        \     "hook/close_quickfix/enable_success" : 1,
+        \   },
+        \   "watchdogs_checker/" : {
+        \     "outputter/quickfix/open_cmd" : "",
+        \     "hook/qfstatusline_update/enable_exit" : 1,
+        \     "hook/qfstatusline_update/priority_exit" : 4,
+        \   },
         \ }
   nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
