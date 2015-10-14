@@ -12,31 +12,9 @@ snippet     def
 abbr        `define def_name def_val
   \`define ${1:name} ${2:val}
 
-snippet     ts
-abbr        `timescale ..s/..s
-  \`timescale ${1:1ps}/${2:1ps}
-
-snippet     always
-abbr        always @() begin end
-  always @(${1:SENSITIVITY_LIST}) begin
-    ${0:TARGET}
-  end
-
-snippet     alwaysclk
-abbr        alway @(posedge clk) begin end
-  always @(posedge clk${1:SENSITIVITY_LIST}) begin
-    ${0:TARGET}
-  end
-
 snippet     if
 abbr        if() begin...end
   if(${1:#:condition}) begin
-    ${0:TARGET}
-  end
-
-snippet     else
-abbr        else begin...end
-  end else begin
     ${0:TARGET}
   end
 
