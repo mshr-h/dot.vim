@@ -63,13 +63,13 @@ silent! if plug#begin('~/.plugged')
   Plug 'tyru/open-browser.vim'
   Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload; javac Reflection.java'}
   Plug 'tell-k/vim-autopep8'
-  
+
   if exists('##QuitPre')
     Plug 'thinca/vim-quickrun'
     Plug 'osyo-manga/shabadou.vim'
     Plug 'osyo-manga/vim-watchdogs'
   endif
-  
+
   if(has('lua'))
     Plug 'Shougo/neocomplete' | Plug 'Shougo/neosnippet'
     Plug 'Shougo/neocomplete' | Plug 'Shougo/neosnippet-snippets'
@@ -398,8 +398,7 @@ vmap gx <Plug>(openbrowser-smart-search)
 " ----------------------------------------------------------------------------
 augroup MyAutoCmd
   autocmd!
-
-  autocmd BufRead,BufNewFile *.vim,.vimrc setl foldmethod=marker
+  autocmd FileType vim setl foldmethod=marker
   autocmd FileType python setl shiftwidth=4
   autocmd FileType python setl cin
   autocmd FileType python setl tw=79
