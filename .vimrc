@@ -802,6 +802,16 @@ augroup RainbowParentheses
 augroup END
 
 " ----------------------------------------------------------------------------
+" vim-clang-format
+" ----------------------------------------------------------------------------
+let g:clang_format#auto_format=1
+augroup ClangFormat
+  autocmd!
+  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+augroup END
+
+" ----------------------------------------------------------------------------
 " Read local setting.
 " ----------------------------------------------------------------------------
 if filereadable(expand('$HOME/.vimrc_local'))
