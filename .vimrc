@@ -331,6 +331,7 @@ endif
 let g:vimsyntax_noerror = 1
 
 " Python
+let g:autopep8_disable_show_diff=1
 let g:python_highlight_all = 1
 function! Preserve(command)
   " Save the last search.
@@ -386,9 +387,6 @@ let g:tagbar_type_go = {
     \ },
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'}
-
-" Python
-let g:autopep8_disable_show_diff=1
 
 " markdown
 let g:netrw_nogx = 1
