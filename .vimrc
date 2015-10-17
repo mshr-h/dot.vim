@@ -61,7 +61,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
-  Plug 'artur-shaik/vim-javacomplete2'
+  Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload; javac Reflection.java'}
   Plug 'tell-k/vim-autopep8'
   Plug 'rhysd/vim-clang-format'
 
