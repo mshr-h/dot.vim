@@ -61,7 +61,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
-  Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload; javac Reflection.java'}
+  Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload && javac -Xlint:unchecked Reflection.java'}
   Plug 'tell-k/vim-autopep8'
   Plug 'rhysd/vim-clang-format'
 
@@ -415,6 +415,10 @@ augroup MyAutoCmd
   autocmd FileType go setl shiftwidth=4
   autocmd FileType go setl tabstop=4
   autocmd FileType go setl listchars=tab:\|\ ,trail:-
+  autocmd FileType java setl noexpandtab
+  autocmd FileType java setl shiftwidth=2
+  autocmd FileType java setl tabstop=2
+  autocmd FileType java setl listchars=tab:\|\ ,trail:-
   autocmd FileType verilog setl suffixesadd=.v
   autocmd FileType verilog setl noexpandtab
   autocmd FileType verilog setl shiftwidth=2
