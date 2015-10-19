@@ -432,9 +432,6 @@ augroup MyAutoCmd
   autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
   autocmd FileType java setl omnifunc=javacomplete#Complete
   autocmd FileType java setl completefunc=javacomplete#COmpleteParamsInfo
-
-  autocmd FileType java let g:watchdogs_check_BufWritePost_enable=0
-
 augroup END
 
 
@@ -761,7 +758,13 @@ cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandL
 " vim-watchdogs
 " ----------------------------------------------------------------------------
 if exists('##QuitPre')
-  let g:watchdogs_check_BufWritePost_enable = 1
+  augroup WatchDogs
+    autocmd!
+    autocmd FileType c,cpp let g:watchdogs_check_BufWritePost_enable=1
+    autocmd FileType go let g:watchdogs_check_BufWritePost_enable=1
+    autocmd FileType python let g:watchdogs_check_BufWritePost_enable=1
+  augroup END
+
   if !exists("g:quickrun_config")
     let g:quickrun_config = {}
   endif
