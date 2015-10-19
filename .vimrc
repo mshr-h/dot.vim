@@ -432,6 +432,9 @@ augroup MyAutoCmd
   autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
   autocmd FileType java setl omnifunc=javacomplete#Complete
   autocmd FileType java setl completefunc=javacomplete#COmpleteParamsInfo
+
+  autocmd FileType java let g:watchdogs_check_BufWritePost_enable=0
+
 augroup END
 
 
