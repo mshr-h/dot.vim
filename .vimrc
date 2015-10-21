@@ -47,7 +47,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'kien/rainbow_parentheses.vim'
 
   " Edit
-  Plug 'junegunn/vim-easy-align'
+  Plug 'vim-scripts/Align'
   Plug 'Yggdroot/indentLine'
   Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-surround'
@@ -439,16 +439,6 @@ augroup END
 " vim-plug
 " ----------------------------------------------------------------------------
 let g:plug_window='new'
-
-" ----------------------------------------------------------------------------
-" <Enter> | vim-easy-align
-" ----------------------------------------------------------------------------
-
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-nmap gaa ga_
 
 " ----------------------------------------------------------------------------
 " unite.vim
