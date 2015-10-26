@@ -647,7 +647,7 @@ endfunction
 " ----------------------------------------------------------------------------
 " Restart.vim
 " ----------------------------------------------------------------------------
-let g:restart_save_window_values=0
+let g:restart_sessionoptions = "winsize,winpos"
 nnoremap <silent> <Space>re  :<C-u>Restart<CR>
 
 " ----------------------------------------------------------------------------
