@@ -37,6 +37,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim'
   Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler'
   Plug 'Shougo/unite.vim' | Plug 'Shougo/vimshell'
+  Plug 'Shougo/unite.vim' | Plug 'Shougo/neoyank.vim'
   Plug 'haya14busa/incsearch.vim'
 
   " Git
@@ -444,7 +445,6 @@ let g:plug_window='new'
 " unite.vim
 " ----------------------------------------------------------------------------
 let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable = 1
 " use vimfiler to open directory
 call unite#custom_default_action("source/bookmark/directory", "vimfiler")
 call unite#custom_default_action("directory", "vimfiler")
