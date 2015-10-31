@@ -750,6 +750,7 @@ cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandL
 if exists('##QuitPre')
   augroup WatchDogs
     autocmd!
+    autocmd FileType * let g:watchdogs_check_BufWritePost_enable=0
     autocmd FileType c,cpp let g:watchdogs_check_BufWritePost_enable=1
     autocmd FileType go let g:watchdogs_check_BufWritePost_enable=1
     autocmd FileType python let g:watchdogs_check_BufWritePost_enable=1
