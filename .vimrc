@@ -42,6 +42,7 @@ silent! if plug#begin('~/.plugged')
 
   " Git
   Plug 'Shougo/unite.vim' | Plug 'kmnk/vim-unite-giti'
+  Plug 'lambdalisue/vim-gita'
 
   " Colors
   Plug 'chriskempson/vim-tomorrow-theme'
