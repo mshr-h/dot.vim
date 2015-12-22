@@ -422,7 +422,7 @@ augroup MyAutoCmd
   autocmd FileType java setl tabstop=2
   autocmd FileType java setl listchars=tab:\|\ ,trail:-
   autocmd FileType verilog setl suffixesadd=.v
-  autocmd FileType verilog setl noexpandtab
+  autocmd FileType verilog setl expandtab
   autocmd FileType verilog setl shiftwidth=2
   autocmd FileType verilog setl tabstop=2
   autocmd FileType verilog setl listchars=tab:\|\ ,trail:-
