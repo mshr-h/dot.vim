@@ -556,7 +556,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [
       \     ['mode', 'paste'],
-      \     ['filename']
+      \     ['fugitive', 'readonly', 'filename']
       \   ],
       \   'right': [
       \     ['lineinfo'],
