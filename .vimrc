@@ -42,7 +42,7 @@ silent! if plug#begin('~/.plugged')
 
   " Git
   Plug 'Shougo/unite.vim' | Plug 'kmnk/vim-unite-giti'
-  Plug 'lambdalisue/vim-gita'
+  Plug 'tpope/vim-fugitive'
 
   " Colors
   Plug 'chriskempson/vim-tomorrow-theme'
@@ -530,6 +530,13 @@ augroup END
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" ----------------------------------------------------------------------------
+" vim-fugitive
+" ----------------------------------------------------------------------------
+nnoremap <silent> <Space>gb :Gblame<CR>
+nnoremap <silent> <Space>gd :Gdiff<CR>
+nnoremap <silent> <Space>gs :Gstatus<CR>
 
 " ----------------------------------------------------------------------------
 " indentLine
