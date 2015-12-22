@@ -174,7 +174,7 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 " Disable ZZ and ZQ.
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
-nnoremap <Leader>c :<C-u>setlocal cursorline! cursorcolumn!<CR>
+nnoremap <Leader>cc :<C-u>setlocal cursorline! cursorcolumn!<CR>
 " Command-line mode keymappings:"{{{
 " <C-a>, A: move to head.
 cnoremap <C-a>          <Home>
