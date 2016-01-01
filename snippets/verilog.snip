@@ -126,16 +126,16 @@ abbr        testbench
   );
 
   parameter CLK_PERIOD = 10.0;
-  always #(CLK_PERIOD/2) clk = ~clk;
+  always #(CLK_PERIOD/2) clk <= ~clk;
 
   initial begin
     $dumpfile("tb_$1.vcd");
     $dumpvars(0, tb_$1);
-    #1 rst_n=1'bx;clk=1'bx;
-    #(CLK_PERIOD)   rst_n=1;
-    #(CLK_PERIOD*3) rst_n=0;clk=0;
+    #1 rst_n<=1'bx;clk<=1'bx;
+    #(CLK_PERIOD)   rst_n<=1;
+    #(CLK_PERIOD*3) rst_n<=0;clk<=0;
     repeat(5) @(posedge clk);
-    rst_n=1;
+    rst_n<=1;
     @(posedge clk);
     repeat(2) @(posedge clk);
     $finish(2);
