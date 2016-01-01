@@ -4,6 +4,51 @@ abbr        module() endmodule
   ${3:/* code */}
   endmodule
 
+snippet     al
+abbr        always @() begin end
+  always @(${1}) begin
+    ${2}
+  end
+
+snippet     alclk
+abbr        always @(posedge clk) begin end
+  always @(posedge clk${1}) begin
+    ${2}
+  end
+
+snippet     beginend
+abbr        begin end
+  begin
+    ${1}
+  end
+
+snippet     case
+abbr        case()...endcase
+  case(${0:#variable})
+    ${1:#value} : ${2:#target}
+    default : #{3}
+  endcase
+
+snippet     reg
+abbr        reg reg_name;
+  reg ${1};
+
+snippet     rega
+abbr        reg [N:0] reg_name;
+  reg [${1}:${2}] ${3};
+
+snippet     regm
+abbr        reg [N:0] reg_name [0:M];
+  reg [${1}:${2}] ${3} [${4}:${5}];
+
+snippet     wire
+abbr        wire wire_name;
+  wire ${1};
+
+snippet     wirea
+abbr        wire [N:0] wire_name;
+  wire [${1}:${2}] ${3};
+
 snippet     inc
 abbr        `include "..."
   \`include "${1}"
@@ -11,6 +56,14 @@ abbr        `include "..."
 snippet     def
 abbr        `define def_name def_val
   \`define ${1:name} ${2:val}
+
+snippet     param
+abbr        a ? b : c
+  ${1} ? ${2} : ${3}
+
+snippet     ter
+abbr        parmeter var = val;
+  parameter ${1} = ${2};
 
 snippet     if
 abbr        if() begin...end
@@ -47,14 +100,6 @@ abbr        while(...) begin end
   while(${1:#:condition}) begin
     ${0:TARGET}
   end
-
-snippet     case
-abbr        case()...endcase
-options     head
-  case(${0:#variable})
-    ${1:#value} : ${2:#target}
-    default : #{3}
-  endcase
 
 snippet     func
 abbr        function  endfunction;
