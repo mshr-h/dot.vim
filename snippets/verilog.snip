@@ -51,9 +51,9 @@ abbr        while(...) begin end
 snippet     case
 abbr        case()...endcase
 options     head
-  case(${1:#:var})
-    ${2:#:val} : ${0:TARGET}
-    default : $2 = x;
+  case(${0:#variable})
+    ${1:#value} : ${2:#target}
+    default : #{3}
   endcase
 
 snippet     func
