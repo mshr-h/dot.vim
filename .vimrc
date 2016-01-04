@@ -59,7 +59,6 @@ silent! if plug#begin('~/.plugged')
 
   " Lang
   Plug 'fatih/vim-go'
-  Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
   Plug 'plasticboy/vim-markdown'
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
