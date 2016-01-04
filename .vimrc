@@ -58,7 +58,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'KazuakiM/vim-qfstatusline'
 
   " Lang
-  Plug 'fatih/vim-go'
+  Plug 'fatih/vim-go', { 'for': 'go' }
   Plug 'plasticboy/vim-markdown'
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
