@@ -59,7 +59,7 @@ silent! if plug#begin('~/.plugged')
 
   " Lang
   Plug 'fatih/vim-go'
-  Plug 'plasticboy/vim-markdown'
+  Plug 'tpope/vim-markdown'
   Plug 'kannokanno/previm'
   Plug 'tyru/open-browser.vim'
   Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload && javac -Xlint:unchecked Reflection.java'}
@@ -390,16 +390,12 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'}
 
-" markdown
-let g:netrw_nogx = 1
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-
 " ----------------------------------------------------------------------------
 " Autocommands
 " ----------------------------------------------------------------------------
 augroup MyAutoCmd
   autocmd!
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd FileType vim setl foldmethod=marker
   autocmd FileType python setl shiftwidth=4
   autocmd FileType python setl cin
@@ -758,7 +754,6 @@ let g:over#command_line#search#enable_incsearch = 1
 let g:over#command_line#search#enable_move_cursor = 0
 
 cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>': 's'
-
 
 " ----------------------------------------------------------------------------
 " vim-watchdogs
