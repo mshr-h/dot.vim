@@ -60,8 +60,6 @@ silent! if plug#begin('~/.plugged')
   " Lang
   Plug 'fatih/vim-go'
   Plug 'tpope/vim-markdown'
-  Plug 'kannokanno/previm'
-  Plug 'tyru/open-browser.vim'
   Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload && javac -Xlint:unchecked Reflection.java'}
   Plug 'tell-k/vim-autopep8'
   Plug 'rhysd/vim-clang-format'
