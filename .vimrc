@@ -35,7 +35,6 @@ silent! if plug#begin('~/.plugged')
 
   " Browsing
   Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim'
-  Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler'
   Plug 'Shougo/unite.vim' | Plug 'Shougo/vimshell'
   Plug 'Shougo/unite.vim' | Plug 'Shougo/neoyank.vim'
   Plug 'haya14busa/incsearch.vim'
@@ -439,10 +438,6 @@ let g:plug_window='new'
 " unite.vim
 " ----------------------------------------------------------------------------
 let g:unite_enable_start_insert=1
-" use vimfiler to open directory
-call unite#custom_default_action("source/bookmark/directory", "vimfiler")
-call unite#custom_default_action("directory", "vimfiler")
-call unite#custom_default_action("directory_mru", "vimfiler")
 " matcher をデフォルトにする
 call unite#custom#source('file', 'matchers', ["matcher_default"])
 function! s:unite_settings()
@@ -472,45 +467,6 @@ nnoremap <silent> [unite]g :<C-u>Unite giti<CR>
 " All.
 nnoremap <silent> [unite]a :<C-u>Unite buffer file_mru bookmark file<CR>
 
-" ----------------------------------------------------------------------------
-" VimFiler
-" ----------------------------------------------------------------------------
-nnoremap <silent> <Space>v  :<C-u>VimFiler -find<CR>
-nnoremap <silent> <Space>ff :<C-u>VimFilerExplorer<CR>
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_enable_clipboard = 0
-let g:vimfiler_safe_mode_by_default = 0
-
-let g:vimfiler_detect_drives = s:is_windows ? [
-      \ 'C:/', 'D:/', 'E:/', 'F:/', 'G:/', 'H:/', 'I:/',
-      \ 'J:/', 'K:/', 'L:/', 'M:/', 'N:/', 'U:/'] :
-      \ split(glob('/mnt/*'), '\n') + split(glob('/media/*'), '\n') +
-      \ split(glob('/Users/*'), '\n')
-
-if s:is_windows
-  " Use trashbox.
-  let g:unite_kind_file_use_trashbox = 1
-endif
-
-function! s:vimfiler_my_settings()
-  call vimfiler#set_execute_file('vim', ['vim', 'notepad'])
-  call vimfiler#set_execute_file('txt', 'vim')
-
-  " Overwrite settings.
-  nnoremap <silent><buffer> J
-        \ <C-u>:Unite -buffer-name=files -default-action=lcd directory_mru<CR>
-
-  nmap <buffer> O <Plug>(vimfiler_sync_with_another_vimfiler)
-  nnoremap <silent><buffer><expr> gy vimfiler#do_action('tabopen')
-  nmap <buffer> <Tab> <Plug>(vimfiler_switch_to_other_window)
-
-endfunction
-
-augroup VimFiler
-  autocmd! VimFiler
-  autocmd FileType vimfiler call s:vimfiler_my_settings()
-augroup END
-
  " ----------------------------------------------------------------------------
  " VimShell
  " ----------------------------------------------------------------------------
@@ -538,7 +494,7 @@ let g:indentLine_faster = 1
 let g:indentLine_color_term = 111
 let g:indentLine_color_gui = '#708090'
 let g:indentLine_char = '|'
-let g:indentLine_fileTypeExclude = ['help', 'vimfiler', 'unite']
+let g:indentLine_fileTypeExclude = ['help', 'unite']
 
 " ----------------------------------------------------------------------------
 " lightline.vim
@@ -791,6 +747,12 @@ if exists('##QuitPre')
 
   call watchdogs#setup(g:quickrun_config)
 endif
+
+" ----------------------------------------------------------------------------
+" netrw
+" ----------------------------------------------------------------------------
+let g:netrw_liststyle=3
+map <Space>k :Explore<cr>
 
 " ----------------------------------------------------------------------------
 " vim-qfstatusline
