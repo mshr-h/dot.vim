@@ -1,4 +1,5 @@
 colorscheme Tomorrow-Night-Eighties
+set clipboard=unnamed,autoselect
 
 " Window size
 set lines=30
