@@ -19,11 +19,11 @@ abbr        testbench
   \`include "${1}.v"
   \`default_nettype none
 
-  module tb_$1;
+  module tb_$2;
   reg rst_n;
   reg clk;
 
-  $1 ${2:_$1}
+  $2 ${3:_$2}
   (
     .rst_n (rst_n),
     .clk (clk)
@@ -33,8 +33,8 @@ abbr        testbench
   always #(CLK_PERIOD/2) clk <= ~clk;
 
   initial begin
-    $dumpfile("tb_$1.vcd");
-    $dumpvars(0, tb_$1);
+    $dumpfile("tb_$2.vcd");
+    $dumpvars(0, tb_$2);
   end
 
   initial begin
@@ -50,3 +50,4 @@ abbr        testbench
 
   endmodule
   \`default_nettype wire
+
