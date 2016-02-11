@@ -62,6 +62,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload && javac -Xlint:unchecked Reflection.java'}
   Plug 'tell-k/vim-autopep8'
   Plug 'rhysd/vim-clang-format'
+  Plug 'ekalinin/Dockerfile.vim'
 
   if exists('##QuitPre')
     Plug 'thinca/vim-quickrun'
