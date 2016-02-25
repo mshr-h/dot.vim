@@ -396,9 +396,7 @@ augroup MyAutoCmd
   autocmd FileType python setl shiftwidth=4
   autocmd FileType python setl cin
   autocmd FileType python setl tw=79
-  autocmd FileType python setl fdm=indent
-  autocmd FileType python setl fdn=2
-  autocmd FileType python setl fdl=1
+  autocmd FileType python setl nofoldenable
   autocmd FileType haskell setl nofoldenable
   autocmd FileType c,cpp,objc setl noexpandtab
   autocmd FileType c,cpp,objc setl shiftwidth=4
