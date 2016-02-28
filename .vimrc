@@ -45,6 +45,7 @@ silent! if plug#begin('~/.plugged')
 
   " Colors
   Plug 'chriskempson/vim-tomorrow-theme'
+  Plug 'cocopon/iceberg.vim'
   Plug 'kien/rainbow_parentheses.vim'
 
   " Edit
@@ -80,7 +81,7 @@ endif
 " ============================================================================
 " BASIC SETTINGS {{{
 " ============================================================================
-colorscheme Tomorrow-Night-Eighties
+colorscheme iceberg
 set autoindent
 set smartindent
 set lazyredraw

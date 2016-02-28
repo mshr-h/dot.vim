@@ -1,4 +1,4 @@
-colorscheme Tomorrow-Night-Eighties
+colorscheme iceberg
 set clipboard=unnamed,autoselect
 
 " Window size
