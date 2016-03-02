@@ -1,5 +1,8 @@
 scriptencoding utf-8
 
+" automatically download vimproc.dll
+let g:vimproc#download_windows_dll = 1
+
 let s:is_windows = has('win16') || has('win32') || has('win64')
 let s:is_cygwin = has('win32unix')
 let s:is_mac = !s:is_windows && !s:is_cygwin
