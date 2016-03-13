@@ -59,6 +59,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'osyo-manga/vim-over'
   Plug 'jceb/vim-hier'
   Plug 'KazuakiM/vim-qfstatusline'
+  Plug 'thinca/vim-zenspace'
 
   " Lang
   Plug 'fatih/vim-go'
@@ -143,22 +144,6 @@ if has('patch-7.4.338')
   let &showbreak = '↳ '
   set breakindent
   set breakindentopt=sbr
-endif
-
-" Visualize Full-width space, spaces at the end of the line and tabs.
-if has("syntax")
-  syntax on
-  " PODバグ対策
-  syn sync fromstart
-  function! ActivateInvisibleIndicator()
-    " 下の行の"　"は全角スペース
-    syntax match InvisibleJISX0208Space "　" display containedin=ALL
-    highlight InvisibleJISX0208Space term=underline ctermbg=1 guibg=darkgray gui=underline
-  endfunction
-  augroup invisible
-    autocmd! invisible
-    autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-  augroup END
 endif
 " }}}
 
