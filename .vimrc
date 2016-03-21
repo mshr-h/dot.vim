@@ -50,10 +50,10 @@ silent! if plug#begin('~/.plugged')
   Plug 'chriskempson/vim-tomorrow-theme'
   Plug 'cocopon/iceberg.vim'
   Plug 'kien/rainbow_parentheses.vim'
+  Plug 'nathanaelkane/vim-indent-guides'
 
   " Edit
   Plug 'vim-scripts/Align'
-  Plug 'Yggdroot/indentLine'
   Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-surround'
   Plug 'osyo-manga/vim-over'
@@ -390,20 +390,16 @@ augroup MyAutoCmd
   autocmd FileType c,cpp,objc setl noexpandtab
   autocmd FileType c,cpp,objc setl shiftwidth=4
   autocmd FileType c,cpp,objc setl tabstop=4
-  autocmd FileType c,cpp,objc setl listchars=tab:\|\ ,trail:-
   autocmd FileType go setl noexpandtab
   autocmd FileType go setl shiftwidth=4
   autocmd FileType go setl tabstop=4
-  autocmd FileType go setl listchars=tab:\|\ ,trail:-
   autocmd FileType java setl noexpandtab
   autocmd FileType java setl shiftwidth=2
   autocmd FileType java setl tabstop=2
-  autocmd FileType java setl listchars=tab:\|\ ,trail:-
   autocmd FileType verilog setl suffixesadd=.v
   autocmd FileType verilog setl expandtab
   autocmd FileType verilog setl shiftwidth=2
   autocmd FileType verilog setl tabstop=2
-  autocmd FileType verilog setl listchars=tab:\|\ ,trail:-
 
   autocmd FileType css setl omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setl omnifunc=htmlcomplete#CompleteTags
@@ -474,13 +470,9 @@ nnoremap <silent> <Space>gd :Gdiff<CR>
 nnoremap <silent> <Space>gs :Gstatus<CR>
 
 " ----------------------------------------------------------------------------
-" indentLine
+" vim-indent-guides
 " ----------------------------------------------------------------------------
-let g:indentLine_faster = 1
-let g:indentLine_color_term = 111
-let g:indentLine_color_gui = '#708090'
-let g:indentLine_char = '|'
-let g:indentLine_fileTypeExclude = ['help', 'unite']
+let g:indent_guides_start_level=2
 
 " ----------------------------------------------------------------------------
 " lightline.vim
