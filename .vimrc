@@ -41,6 +41,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'Shougo/unite.vim' | Plug 'Shougo/vimshell'
   Plug 'Shougo/unite.vim' | Plug 'Shougo/neoyank.vim'
   Plug 'haya14busa/incsearch.vim'
+  Plug 'itchyny/vim-cursorword'
 
   " Git
   Plug 'Shougo/unite.vim' | Plug 'kmnk/vim-unite-giti'
