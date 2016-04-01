@@ -52,7 +52,6 @@ silent! if plug#begin('~/.plugged')
   Plug 'cocopon/iceberg.vim'
   Plug 'kien/rainbow_parentheses.vim'
   Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'jdkanani/vim-material-theme'
 
   " Edit
   Plug 'vim-scripts/Align'
@@ -87,8 +86,7 @@ endif
 " ============================================================================
 " BASIC SETTINGS {{{
 " ============================================================================
-colorscheme material-theme
-set background=dark
+colorscheme iceberg
 set autoindent
 set smartindent
 set lazyredraw
