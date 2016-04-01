@@ -1,4 +1,5 @@
-colorscheme iceberg
+colorscheme material-theme
+set background=dark
 set clipboard=unnamed,autoselect
 
 " Window size
