@@ -131,7 +131,6 @@ set modeline
 set t_Co=256
 set nf="hex"
 set foldlevelstart=99
-set grepformat=%f:%l:%c:%m,%f:%l:%m
 set completeopt=menuone,preview,longest
 set nocursorline
 set nrformats=hex
@@ -144,6 +143,10 @@ if has('patch-7.4.338')
   let &showbreak = '↳ '
   set breakindent
   set breakindentopt=sbr
+endif
+set grepformat=%f:%l:%c:%m,%f:%l:%m
+if executable('jvgrep')
+  set grepprg=jvgrep
 endif
 " }}}
 
