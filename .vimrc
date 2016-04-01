@@ -88,11 +88,14 @@ set laststatus=2
 set number
 set showcmd
 set visualbell
-set nowritebackup
-set nobackup
-set backupdir-=.
-set noswapfile
-set noundofile
+set backup
+set backupdir=~/var/vim/backup//
+set writebackup
+set swapfile
+set directory=~/var/vim/swap//
+set undofile
+set undodir=~/var/vim/undo//
+set undolevels=1000
 set matchpairs+=<:>
 set backspace=indent,eol,start
 set timeoutlen=500
@@ -101,12 +104,14 @@ set shortmess=aIT
 set hlsearch " CTRL-L / CTRL-R W
 set incsearch
 set hidden
-set ignorecase smartcase
+set ignorecase
+set smartcase
 set wildmenu
 set wildmode=full
 set tabstop=2
 set shiftwidth=2
-set expandtab smarttab
+set expandtab
+set smarttab
 set scrolloff=5
 set encoding=utf-8
 set list
