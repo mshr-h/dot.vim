@@ -69,12 +69,6 @@ silent! if plug#begin('~/.plugged')
   Plug 'tell-k/vim-autopep8'
   Plug 'rhysd/vim-clang-format'
 
-  if exists('##QuitPre')
-    Plug 'thinca/vim-quickrun'
-    Plug 'osyo-manga/shabadou.vim'
-    Plug 'osyo-manga/vim-watchdogs'
-  endif
-
   if(has('lua'))
     Plug 'Shougo/neocomplete' | Plug 'Shougo/neosnippet'
     Plug 'Shougo/neocomplete' | Plug 'Shougo/neosnippet-snippets'
@@ -688,45 +682,6 @@ let g:over#command_line#search#enable_incsearch = 1
 let g:over#command_line#search#enable_move_cursor = 0
 
 cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>': 's'
-
-" ----------------------------------------------------------------------------
-" vim-watchdogs
-" ----------------------------------------------------------------------------
-if exists('##QuitPre')
-  augroup WatchDogs
-    autocmd!
-    autocmd FileType * let g:watchdogs_check_BufWritePost_enable=0
-    autocmd FileType c,cpp let g:watchdogs_check_BufWritePost_enable=1
-    autocmd FileType go let g:watchdogs_check_BufWritePost_enable=1
-    autocmd FileType python let g:watchdogs_check_BufWritePost_enable=1
-  augroup END
-
-  if !exists("g:quickrun_config")
-    let g:quickrun_config = {}
-  endif
-
-  let g:quickrun_config = {
-        \   "_" : {
-        \     "runner" : "vimproc",
-        \     "hook/time/enable" : 0,
-        \     "runner/vimproc/updatetime" : 250,
-        \     "outputter" : "multi:buffer:quickfix",
-        \     "outputter/buffer/split" : ":botright 8sp",
-        \     "hook/close_buffer/enable_empty_data" : 1,
-        \     "hook/close_buffer/enable_failure" : 1,
-        \     "hook/close_quickfix/enable_hook_loaded" : 1,
-        \     "hook/close_quickfix/enable_success" : 1,
-        \   },
-        \   "watchdogs_checker/" : {
-        \     "outputter/quickfix/open_cmd" : "",
-        \     "hook/qfstatusline_update/enable_exit" : 1,
-        \     "hook/qfstatusline_update/priority_exit" : 4,
-        \   },
-        \ }
-  nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-
-  call watchdogs#setup(g:quickrun_config)
-endif
 
 " ----------------------------------------------------------------------------
 " netrw
