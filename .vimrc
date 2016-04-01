@@ -49,7 +49,6 @@ silent! if plug#begin('~/.plugged')
 
   " Colors
   Plug 'chriskempson/vim-tomorrow-theme'
-  Plug 'cocopon/iceberg.vim'
   Plug 'kien/rainbow_parentheses.vim'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'jdkanani/vim-material-theme'
