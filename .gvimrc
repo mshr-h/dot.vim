@@ -1,4 +1,4 @@
-colorscheme iceberg
+colorscheme Tomorrow-Night-Bright
 set clipboard=unnamed,autoselect
 
 " Window size

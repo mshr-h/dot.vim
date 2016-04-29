@@ -80,7 +80,7 @@ endif
 " ============================================================================
 " BASIC SETTINGS {{{
 " ============================================================================
-colorscheme iceberg
+colorscheme Tomorrow-Night-Bright
 set autoindent
 set smartindent
 set lazyredraw
