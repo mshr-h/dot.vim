@@ -108,6 +108,7 @@ set smartcase
 set wildmenu
 set wildmode=full
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 set smarttab
@@ -125,7 +126,6 @@ set history=500
 set cmdheight=2
 set title
 set titlelen=95
-set softtabstop=2
 set modeline
 set t_Co=256
 set nf="hex"
@@ -377,25 +377,23 @@ let g:tagbar_type_go = {
 augroup MyAutoCmd
   autocmd!
   autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd FileType vim setl foldmethod=marker
-  autocmd FileType python setl shiftwidth=4
-  autocmd FileType python setl cin
-  autocmd FileType python setl tw=79
-  autocmd FileType python setl nofoldenable
-  autocmd FileType haskell setl nofoldenable
   autocmd FileType c,cpp,objc setl noexpandtab
   autocmd FileType c,cpp,objc setl shiftwidth=4
   autocmd FileType c,cpp,objc setl tabstop=4
   autocmd FileType go setl noexpandtab
   autocmd FileType go setl shiftwidth=4
   autocmd FileType go setl tabstop=4
+  autocmd FileType haskell setl nofoldenable
   autocmd FileType java setl noexpandtab
-  autocmd FileType java setl shiftwidth=2
   autocmd FileType java setl tabstop=2
+  autocmd FileType python setl cin
+  autocmd FileType python setl noexpandtab
+  autocmd FileType python setl nofoldenable
+  autocmd FileType python setl shiftwidth=4
+  autocmd FileType python setl tabstop=4
+  autocmd FileType python setl tw=79
   autocmd FileType verilog setl suffixesadd=.v
-  autocmd FileType verilog setl expandtab
-  autocmd FileType verilog setl shiftwidth=2
-  autocmd FileType verilog setl tabstop=2
+  autocmd FileType vim setl foldmethod=marker
 
   autocmd FileType css setl omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setl omnifunc=htmlcomplete#CompleteTags
