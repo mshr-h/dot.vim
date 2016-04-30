@@ -64,6 +64,7 @@ silent! if plug#begin('~/.plugged')
   " Lang
   Plug 'fatih/vim-go'
   Plug 'tpope/vim-markdown'
+  Plug 'elzr/vim-json'
   Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload && javac -Xlint:unchecked Reflection.java'}
   Plug 'tell-k/vim-autopep8'
   Plug 'rhysd/vim-clang-format'
@@ -342,6 +343,9 @@ let g:java_highlight_debug=1
 let g:java_allow_cpp_keywords=1
 let g:java_space_errors=1
 let g:java_highlight_functions=1
+
+" json
+let g:vim_json_syntax_conceal = 0
 
 " Golang
 let g:tagbar_type_go = {
