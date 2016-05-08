@@ -68,6 +68,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload && javac -Xlint:unchecked Reflection.java'}
   Plug 'tell-k/vim-autopep8'
   Plug 'rhysd/vim-clang-format'
+  Plug 'rust-lang/rust.vim'
 
   if(has('lua'))
     Plug 'Shougo/neocomplete' | Plug 'Shougo/neosnippet'
@@ -721,6 +722,11 @@ augroup ClangFormat
   autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
   autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 augroup END
+
+" ----------------------------------------------------------------------------
+" rust.vim
+" ----------------------------------------------------------------------------
+let g:rustfmt_autosave = 1
 
 " ----------------------------------------------------------------------------
 " Read local setting.
