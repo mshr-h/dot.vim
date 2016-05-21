@@ -349,6 +349,7 @@ let g:java_highlight_functions=1
 let g:vim_json_syntax_conceal = 0
 
 " Golang
+nmap gs <Plug>(go-def-split)
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
