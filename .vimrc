@@ -40,6 +40,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'Shougo/unite.vim' | Plug 'Shougo/neomru.vim'
   Plug 'Shougo/unite.vim' | Plug 'Shougo/vimshell'
   Plug 'Shougo/unite.vim' | Plug 'Shougo/neoyank.vim'
+  Plug 'Shougo/unite.vim' | Plug 'Shougo/vimfiler.vim'
   Plug 'haya14busa/incsearch.vim'
   Plug 'itchyny/vim-cursorword'
 
@@ -450,11 +451,17 @@ nnoremap <silent> [unite]g :<C-u>Unite giti<CR>
 " All.
 nnoremap <silent> [unite]a :<C-u>Unite buffer file_mru bookmark file<CR>
 
- " ----------------------------------------------------------------------------
- " VimShell
- " ----------------------------------------------------------------------------
- nmap <Space>s :<C-u>VimShell<CR>
- nnoremap <silent> <Space>; :<C-u>VimShellPop<CR>
+" ----------------------------------------------------------------------------
+" vimshell
+" ----------------------------------------------------------------------------
+nmap <Space>s :<C-u>VimShell<CR>
+nnoremap <silent> <Space>; :<C-u>VimShellPop<CR>
+
+" ----------------------------------------------------------------------------
+" vimfiler
+" ----------------------------------------------------------------------------
+let g:vimfiler_as_default_explorer = 1
+nmap <Space>f :<C-u>VimFiler<CR>
 
 " ----------------------------------------------------------------------------
 " incsearch.vim
@@ -688,12 +695,6 @@ let g:over#command_line#search#enable_incsearch = 1
 let g:over#command_line#search#enable_move_cursor = 0
 
 cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandLine<CR><C-u>%s/<C-r>=get([], getchar(0), '')<CR>': 's'
-
-" ----------------------------------------------------------------------------
-" netrw
-" ----------------------------------------------------------------------------
-let g:netrw_liststyle=3
-map <Space>k :Explore<cr>
 
 " ----------------------------------------------------------------------------
 " vim-qfstatusline
