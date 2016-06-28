@@ -447,7 +447,12 @@ nnoremap <silent> [unite]s
 " yank history.
 nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 " vim-unite-giti.
-nnoremap <silent> [unite]g :<C-u>Unite giti<CR>
+nnoremap <silent> [unite]g  :<C-u>Unite giti<CR>
+nnoremap <silent> [unite]gb :<C-u>Unite giti/branch<CR>
+nnoremap <silent> [unite]gc :<C-u>Unite giti/config<CR>
+nnoremap <silent> [unite]gl :<C-u>Unite giti/log<CR>
+nnoremap <silent> [unite]gr :<C-u>Unite giti/remote<CR>
+nnoremap <silent> [unite]gs :<C-u>Unite giti/status<CR>
 " All.
 nnoremap <silent> [unite]a :<C-u>Unite buffer file_mru bookmark file<CR>
 
