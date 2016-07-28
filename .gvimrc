@@ -1,4 +1,4 @@
-colorscheme Tomorrow-Night-Bright
+colorscheme onedark
 set clipboard=unnamed,autoselect
 
 " Window size

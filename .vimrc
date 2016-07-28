@@ -52,6 +52,8 @@ silent! if plug#begin('~/.plugged')
   Plug 'chriskempson/vim-tomorrow-theme'
   Plug 'kien/rainbow_parentheses.vim'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'joshdick/onedark.vim'
+  Plug 'hallzy/lightline-onedark'
 
   " Edit
   Plug 'vim-scripts/Align'
@@ -82,7 +84,7 @@ endif
 " ============================================================================
 " BASIC SETTINGS {{{
 " ============================================================================
-colorscheme Tomorrow-Night-Bright
+colorscheme onedark
 set autoindent
 set smartindent
 set lazyredraw
@@ -492,7 +494,7 @@ let g:indent_guides_enable_on_vim_startup=1
 " lightline.vim
 " ----------------------------------------------------------------------------
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night_Eighties',
+      \ 'colorscheme': 'onedark',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [
