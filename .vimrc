@@ -51,7 +51,6 @@ silent! if plug#begin('~/.plugged')
   " Colors
   Plug 'chriskempson/vim-tomorrow-theme'
   Plug 'kien/rainbow_parentheses.vim'
-  Plug 'nathanaelkane/vim-indent-guides'
   Plug 'joshdick/onedark.vim'
   Plug 'hallzy/lightline-onedark'
 
@@ -483,12 +482,6 @@ map g/ <Plug>(incsearch-stay)
 nnoremap <silent> <Space>gb :Gblame<CR>
 nnoremap <silent> <Space>gd :Gdiff<CR>
 nnoremap <silent> <Space>gs :Gstatus<CR>
-
-" ----------------------------------------------------------------------------
-" vim-indent-guides
-" ----------------------------------------------------------------------------
-" let g:indent_guides_start_level=2
-" let g:indent_guides_enable_on_vim_startup=1
 
 " ----------------------------------------------------------------------------
 " lightline.vim
