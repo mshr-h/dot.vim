@@ -389,10 +389,10 @@ augroup MyAutoCmd
   autocmd FileType c,cpp,objc setl noexpandtab
   autocmd FileType c,cpp,objc setl shiftwidth=4
   autocmd FileType c,cpp,objc setl tabstop=4
-  autocmd FileType go setl listchars=tab:\ \ ,trail:-
   autocmd FileType go setl noexpandtab
   autocmd FileType go setl shiftwidth=4
   autocmd FileType go setl tabstop=4
+  autocmd FileType go setl listchars=tab:\|\ ,trail:-
   autocmd FileType haskell setl nofoldenable
   autocmd FileType java setl noexpandtab
   autocmd FileType java setl tabstop=2
@@ -487,8 +487,8 @@ nnoremap <silent> <Space>gs :Gstatus<CR>
 " ----------------------------------------------------------------------------
 " vim-indent-guides
 " ----------------------------------------------------------------------------
-let g:indent_guides_start_level=2
-let g:indent_guides_enable_on_vim_startup=1
+" let g:indent_guides_start_level=2
+" let g:indent_guides_enable_on_vim_startup=1
 
 " ----------------------------------------------------------------------------
 " lightline.vim
