@@ -83,7 +83,7 @@ endif
 " ============================================================================
 " BASIC SETTINGS {{{
 " ============================================================================
-colorscheme onedark
+colorscheme Tomorrow-Night
 set autoindent
 set smartindent
 set lazyredraw
