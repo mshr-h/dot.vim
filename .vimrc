@@ -67,7 +67,6 @@ silent! if plug#begin('~/.plugged')
   Plug 'fatih/vim-go'
   Plug 'tpope/vim-markdown'
   Plug 'elzr/vim-json'
-  Plug 'vim-scripts/javacomplete', {'do' : 'cd autoload && javac -Xlint:unchecked Reflection.java'}
   Plug 'tell-k/vim-autopep8'
   Plug 'rhysd/vim-clang-format'
   Plug 'rust-lang/rust.vim'
