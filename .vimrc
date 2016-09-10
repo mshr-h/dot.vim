@@ -12,15 +12,13 @@ let s:is_mac = !s:is_windows && !s:is_cygwin
 
 " Use English interface.
 if s:is_windows
-  " For Windows.
   language message en
 else
-  " For Linux.
   language message C
 endif
 
+" Exchange path separator.
 if s:is_windows
-  " Exchange path separator.
   set shellslash
 endif
 
@@ -81,8 +79,8 @@ silent! if plug#begin('~/.plugged')
 endif
 
 " ============================================================================
-" BASIC SETTINGS {{{
-" ============================================================================
+" BASIC SETTINGS
+"
 colorscheme Tomorrow-Night
 set autoindent
 set smartindent
@@ -151,15 +149,14 @@ set grepformat=%f:%l:%c:%m,%f:%l:%m
 if executable('jvgrep')
   set grepprg=jvgrep
 endif
-" }}}
 
 " ----------------------------------------------------------------------------
 " Keymappings
-" ----------------------------------------------------------------------------
+"
 " Smart space mapping.
 nnoremap <Space>   <Nop>
 xnoremap <Space>   <Nop>
-" Command-line mode keymappings:"{{{
+" Command-line mode keymappings
 " <C-a>, A: move to head.
 cnoremap <C-a> <Home>
 " <C-b>: previous char.
@@ -179,12 +176,12 @@ cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
       \ '' : getcmdline()[:getcmdpos()-2]<CR>
 " <C-y>: paste.
 cnoremap <C-y> <C-r>*
-"}}}
-" Easily edit .vimrc and .gvimrc "{{{
+
+" Easily edit .vimrc and .gvimrc
 nnoremap <silent> <Space>ev  :<C-u>edit $HOME/.vim/.vimrc<CR>
 nnoremap <silent> <Space>eg  :<C-u>edit $HOME/.vim/.gvimrc<CR>
-"}}}
-" Change current directory. "{{{
+
+" Change current directory.
 nnoremap <silent> <Space>cd :<C-u>CD<CR>
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>') 
 function! s:ChangeCurrentDir(directory, bang)
@@ -201,7 +198,7 @@ endfunction
 
 " ----------------------------------------------------------------------------
 " Encoding
-" ----------------------------------------------------------------------------
+"
 set encoding=utf-8
 " Setting of terminal encoding.
 if !has('gui_running')
@@ -313,7 +310,7 @@ endif
 
 " ----------------------------------------------------------------------------
 " Language
-" ----------------------------------------------------------------------------
+"
 " Vim
 let g:vimsyntax_noerror = 1
 
@@ -381,7 +378,7 @@ let g:tagbar_type_go = {
 
 " ----------------------------------------------------------------------------
 " Autocommands
-" ----------------------------------------------------------------------------
+"
 augroup MyAutoCmd
   autocmd!
   autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -416,14 +413,13 @@ augroup END
 
 " ----------------------------------------------------------------------------
 " vim-plug
-" ----------------------------------------------------------------------------
+"
 let g:plug_window='new'
 
 " ----------------------------------------------------------------------------
 " unite.vim
-" ----------------------------------------------------------------------------
+"
 let g:unite_enable_start_insert=1
-" matcher をデフォルトにする
 call unite#custom#source('file', 'matchers', ["matcher_default"])
 function! s:unite_settings()
   imap <buffer> <Esc><Esc> <Plug>(unite_exit)
@@ -459,31 +455,31 @@ nnoremap <silent> [unite]a :<C-u>Unite buffer file_mru bookmark file<CR>
 
 " ----------------------------------------------------------------------------
 " vimshell
-" ----------------------------------------------------------------------------
+"
 nmap <Space>s :<C-u>VimShell<CR>
 nnoremap <silent> <Space>; :<C-u>VimShellPop<CR>
 
 " ----------------------------------------------------------------------------
 " vimfiler
-" ----------------------------------------------------------------------------
+"
 let g:vimfiler_as_default_explorer = 1
 nmap <Space>f :<C-u>VimFiler<CR>
 
 " ----------------------------------------------------------------------------
 " incsearch.vim
-" ----------------------------------------------------------------------------
+"
 map / <Plug>(incsearch-forward)
 
 " ----------------------------------------------------------------------------
 " vim-fugitive
-" ----------------------------------------------------------------------------
-nnoremap <silent> <Space>gb :Gblame<CR>
-nnoremap <silent> <Space>gd :Gdiff<CR>
-nnoremap <silent> <Space>gs :Gstatus<CR>
+"
+nnoremap <silent> <Space>gb :<C-u>Gblame<CR>
+nnoremap <silent> <Space>gd :<C-u>Gdiff<CR>
+nnoremap <silent> <Space>gs :<C-u>Gstatus<CR>
 
 " ----------------------------------------------------------------------------
 " lightline.vim
-" ----------------------------------------------------------------------------
+"
 let g:lightline = {
       \ 'colorscheme': 'onedark',
       \ 'mode_map': {'c': 'NORMAL'},
@@ -597,13 +593,13 @@ endfunction
 
 " ----------------------------------------------------------------------------
 " Restart.vim
-" ----------------------------------------------------------------------------
+"
 let g:restart_sessionoptions = "winsize,winpos"
 nnoremap <silent> <Space>re  :<C-u>Restart<CR>
 
 " ----------------------------------------------------------------------------
 " nerdcommenter
-" ----------------------------------------------------------------------------
+"
 let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
 nmap <Leader>/ <Plug>NERDCommenterToggle
@@ -611,7 +607,7 @@ vmap <Leader>/ <Plug>NERDCommenterToggle
 
 " ----------------------------------------------------------------------------
 " vim-go
-" ----------------------------------------------------------------------------
+"
 let g:go_fmt_command='goimports'
 let g:go_fmt_autosave = 1
 let g:go_highlight_functions = 1
@@ -623,10 +619,10 @@ let g:gocomplete#system_function = 'system'
 
 " ----------------------------------------------------------------------------
 " neocomplete
-" ----------------------------------------------------------------------------
+"
 " <TAB>: completion.
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-" ファイル名補完
+" file name completion
 inoremap <C-x><C-f> <C-x><C-f><C-p>
 inoremap <expr><C-g> neocomplete#undo_completion()
 inoremap <expr><C-l> neocomplete#complete_common_string()
@@ -665,7 +661,7 @@ let g:neocomplete#force_omni_input_patterns.c=
 
 " ----------------------------------------------------------------------------
 " neosnippet
-" ----------------------------------------------------------------------------
+"
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/snippets/'
 
@@ -686,7 +682,7 @@ endif
 
 " ----------------------------------------------------------------------------
 " over.vim
-" ----------------------------------------------------------------------------
+"
 " 0 以外が設定されていれば :/ or :? 時にそのパータンをハイライトする。
 let g:over#command_line#search#enable_incsearch = 1
 " 0 以外が設定されていれば :/ or :? 時にそのパータンへカーソルを移動する。
@@ -696,17 +692,17 @@ cnoreabb <silent><expr>s getcmdtype()==':' && getcmdline()=~'^s' ? 'OverCommandL
 
 " ----------------------------------------------------------------------------
 " vim-qfstatusline
-" ----------------------------------------------------------------------------
+"
 let g:Qfstatusline#UpdateCmd = function('lightline#update')
 
 " ----------------------------------------------------------------------------
 " matchit.vim
-" ----------------------------------------------------------------------------
+"
 runtime macros/matchit.vim
 
 " ----------------------------------------------------------------------------
 " rainbow_parentheses.vim
-" ----------------------------------------------------------------------------
+"
 let g:rbpt_loadcmd_toggle=1
 augroup RainbowParentheses
   autocmd!
@@ -715,7 +711,7 @@ augroup END
 
 " ----------------------------------------------------------------------------
 " vim-clang-format
-" ----------------------------------------------------------------------------
+"
 let g:clang_format#auto_format=1
 augroup ClangFormat
   autocmd!
@@ -725,12 +721,12 @@ augroup END
 
 " ----------------------------------------------------------------------------
 " rust.vim
-" ----------------------------------------------------------------------------
+"
 let g:rustfmt_autosave = 1
 
 " ----------------------------------------------------------------------------
 " Read local setting.
-" ----------------------------------------------------------------------------
+"
 if filereadable(expand('$HOME/.vimrc_local'))
   source $HOME/.vimrc_local
 endif
