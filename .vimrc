@@ -53,7 +53,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'hallzy/lightline-onedark'
 
   " Edit
-  Plug 'vim-scripts/Align'
+  Plug 'junegunn/vim-easy-align'
   Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-surround'
   Plug 'osyo-manga/vim-over'
@@ -722,6 +722,10 @@ augroup END
 " rust.vim
 "
 let g:rustfmt_autosave = 1
+
+" ----------------------------------------------------------------------------
+" vim-easy-align
+vmap <Enter> <Plug>(EasyAlign)
 
 " ----------------------------------------------------------------------------
 " Read local setting.
