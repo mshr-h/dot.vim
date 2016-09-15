@@ -83,6 +83,7 @@ endif
 colorscheme Tomorrow-Night
 set autoindent
 set smartindent
+set breakindent
 set lazyredraw
 set laststatus=2
 set number
