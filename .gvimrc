@@ -1,4 +1,4 @@
-colorscheme onedark
+colorscheme tender
 set clipboard=unnamed,autoselect
 
 " Window size

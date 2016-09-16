@@ -51,6 +51,7 @@ silent! if plug#begin('~/.plugged')
   Plug 'kien/rainbow_parentheses.vim'
   Plug 'joshdick/onedark.vim'
   Plug 'hallzy/lightline-onedark'
+  Plug 'jacoborus/tender'
 
   " Edit
   Plug 'junegunn/vim-easy-align'
@@ -80,7 +81,7 @@ endif
 " ============================================================================
 " BASIC SETTINGS
 "
-colorscheme Tomorrow-Night
+colorscheme tender
 set autoindent
 set smartindent
 set breakindent
@@ -480,8 +481,9 @@ nnoremap <silent> <Space>gs :<C-u>Gstatus<CR>
 " ----------------------------------------------------------------------------
 " lightline.vim
 "
+let g:tender_lightline = 1
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'tender',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [
